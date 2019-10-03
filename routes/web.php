@@ -13,4 +13,13 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function (){
+    return view('welcome');
+});
+//Route::get('/vue', function (){
+//    return view('vuetest');
+//});
+Route::get('/contacts', function (){
+    return view('contacts');
+});
 Route::get('blog/{post}', 'PostsController@show');
