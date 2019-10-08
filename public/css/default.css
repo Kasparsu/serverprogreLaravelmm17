@@ -365,10 +365,10 @@ ul.contact li a.icon-rss:before
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
-	
+
 #header-wrapper
 {
-	background: #2b2b2b url(images/banner.jpg) no-repeat center;
+	background: #2b2b2b url(../images/banner.jpg) no-repeat center;
 	background-size: auto 100%;
 }
 
@@ -477,7 +477,7 @@ ul.contact li a.icon-rss:before
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
-	
+
 
 	#header-featured
 	{
