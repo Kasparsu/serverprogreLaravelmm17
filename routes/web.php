@@ -17,6 +17,8 @@ Route::get('/', function (){
     return view('welcome');
 });
 Route::get('/about', function (){
+    $articles = App\Article::get();
+    dd($articles->toArray());
     return view('about');
 });
 //Route::get('/vue', function (){
