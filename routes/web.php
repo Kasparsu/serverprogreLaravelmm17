@@ -17,10 +17,11 @@ Route::get('/', function (){
     return view('welcome');
 });
 Route::get('/about', function (){
-    $articles = App\Article::get();
-    dd($articles->toArray());
-    return view('about');
+    return view('about', [
+        'articles' => \App\Article::latest()->limit(3)->get()
+    ]);
 });
+Route::get('articles/{article}', 'ArticlesController@show');
 //Route::get('/vue', function (){
 //    return view('vuetest');
 //});
