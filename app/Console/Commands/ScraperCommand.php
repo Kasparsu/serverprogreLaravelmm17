@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Comic;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Cache;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ScraperCommand extends Command
@@ -40,15 +41,36 @@ class ScraperCommand extends Command
      */
     public function handle()
     {
-        //$last = $this->getLastComicId();
-        $comic = $this->getComicInfo(1);
-        $comic->save();
+        $last = $this->getLastComicId();
+        $bar = $this->output->createProgressBar($last);
+        $bar->start();
+        for($i=1;$i<=$last; $i++) {
+            try {
+                $comic = $this->getComicInfo($i);
+                $comic->save();
+            } catch (\Exception $e){
+
+            }
+            $bar->advance();
+        }
+        $bar->finish();
+    }
+    public function getHtml($url){
+        if(Cache::has($url)){
+            return Cache::get($url);
+        } else {
+            $guzzle = new Client();
+            $resp = $guzzle->get($url);
+            var_dump("get url");
+            $html = $resp->getBody()->getContents();
+            Cache::put($url, $html);
+            return $html;
+        }
     }
     public function getComicInfo($id):Comic {
-        $guzzle = new Client();
+
         $url = 'https://xkcd.com/' . $id . '/';
-        $resp = $guzzle->get($url);
-        $html = $resp->getBody()->getContents();
+        $html = $this->getHtml($url);
         $crawler = new Crawler($html);
         $titleEl = $crawler->filter('div#ctitle');
         $comic = new Comic();
@@ -61,9 +83,7 @@ class ScraperCommand extends Command
         return $comic;
     }
     public function getLastComicId(){
-        $guzzle = new Client();
-        $resp = $guzzle->get('https://xkcd.com');
-        $html = $resp->getBody()->getContents();
+        $html = $this->getHtml('https://xkcd.com');
         $crawler = new Crawler($html);
         $permUrlEl = $crawler->filter('meta[property="og:url"]');
         $permUrl = $permUrlEl->attr('content');
