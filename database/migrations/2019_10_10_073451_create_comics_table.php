@@ -15,7 +15,7 @@ class CreateComicsTable extends Migration
     {
         Schema::create('comics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('external_id');
+            $table->integer('external_id')->nullable();
             $table->string('img');
             $table->string('url');
             $table->string('title');

@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="37ae1513-6add-4ed1-90c7-2c4f18c009f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/ScraperCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/ScraperCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_10_073451_create_comics_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_10_073451_create_comics_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +129,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../laravel-docker-install/laravel" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -177,7 +176,7 @@
       <workItem from="1570080302815" duration="10187000" />
       <workItem from="1570534998643" duration="4322000" />
       <workItem from="1570605023129" duration="5690000" />
-      <workItem from="1570684838118" duration="11934000" />
+      <workItem from="1570684838118" duration="20245000" />
     </task>
     <servers />
   </component>
